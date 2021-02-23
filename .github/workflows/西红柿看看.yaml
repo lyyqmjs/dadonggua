@@ -1,13 +1,14 @@
-name: 冬瓜sign
-#https://gitee.com/lxk0301/jd_scripts/raw/master/jd_bean_sign.js
-#https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
-#测试冬瓜签到
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: 西红柿看看
+
 on:
     # push:
     #     branches:
-    #         - master
+    #         - main
     schedule:
-        - cron: "0 16 * * *"
+        - cron: "10 0,2,4,6,8 * * *"
     workflow_dispatch:
 jobs:
     build:
@@ -22,12 +23,16 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行 【冬瓜sign】"
+            - name: "运行 【西红柿看看】"
               run: |
-                  node Ponysitters_Club_Season.js
+                  node fqkk.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
-                  SYNCURL: https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+                  fqkkurl: ${{ secrets.fqkkurl }}
+                  fqkkhd: ${{ secrets.fqkkhd }}
+                  fqkkcount: ${{ secrets.fqkkcount }}
+                  fqkkxh: ${{ secrets.fqkkxh }}
+                  fqtx: ${{ secrets.fqtx }}
                   SCKEY: ${{ secrets.SCKEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY }}
